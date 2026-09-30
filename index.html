@@ -3,134 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>八哥网电影网 - 电影推荐、影评解析与正版观影指南</title>
-<meta name="description" content="八哥网电影网（bagewangdianyingwang-h5.github.io）精选好电影推荐、深度影评解析、类型片单与正版观影渠道导航，不提供盗版播放，帮影迷快速选片。">
-<meta name="keywords" content="八哥网电影网,电影推荐,电影影评,类型片单,正版电影平台,经典电影">
+<title>八哥网电影网 - 电影原声、配乐解析与正版观影指南</title>
+<meta name="description" content="八哥网电影网（bagewangdianyingwang-h5.github.io）从电影原声和配乐切入推荐好片：汉斯·季默、久石让、坂本龙一等大师配乐作品解析，不提供盗版播放，只做正版导航。">
+<meta name="keywords" content="八哥网电影网,电影原声,电影配乐,汉斯季默,久石让,坂本龙一,正版电影平台,电影音乐">
 <style>
 :root{
-  --tv-bg:#1a1a1a;--screen:#0d1b0d;--ink:#c8f0c8;--muted:#6a9e6a;
-  --scan:rgba(120,255,120,.04);--accent:#7cff7c;--accent2:#ff6b35;
-  --line:rgba(120,255,120,.2);--radius:10px;
+  --vinyl:#0a0a0a;--vinyl2:#161616;--label:#e8d44d;--label2:#c0392b;
+  --ink:#f0e6d3;--muted:#9a8e7a;--groove:rgba(255,255,255,.06);
+  --accent:#e8d44d;--accent2:#e67e22;--line:rgba(232,212,77,.25);--radius:14px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  font-family:"Noto Sans SC","PingFang SC",system-ui,sans-serif;
+  font-family:"Noto Serif SC","Georgia","PingFang SC",serif;
   background:
-    repeating-linear-gradient(0deg,transparent 0 3px,var(--scan) 3px 4px),
-    #0a0a0a;
+    repeating-radial-gradient(circle at 50% 50%,var(--groove) 0 1px,transparent 1px 4px),
+    radial-gradient(ellipse at 30% 20%,rgba(232,212,77,.08),transparent 60%),
+    var(--vinyl);
   color:var(--ink);line-height:1.7;min-height:100vh;overflow-x:hidden;
 }
+a{color:inherit;text-decoration:none}
 
 /* 顶栏 */
-.topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(6px);border-bottom:2px solid #333}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.93);backdrop-filter:blur(8px);border-bottom:1px solid #222}
 .topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.2rem}
-.brand{font-weight:900;font-size:1.35rem;letter-spacing:1px;color:#e0e0e0}
+.brand{font-weight:900;font-size:1.4rem;letter-spacing:1px}
 .brand b{color:var(--accent)}
 .nav{display:flex;gap:1rem;flex-wrap:wrap}
-.nav a{font-size:.85rem;color:#999;padding:.3rem .2rem;border-bottom:2px solid transparent;transition:all .3s}
+.nav a{font-size:.88rem;color:var(--muted);padding:.3rem .2rem;border-bottom:2px solid transparent;transition:all .3s}
 .nav a:hover{color:var(--accent);border-color:var(--accent)}
 .burger{display:none;font-size:1.5rem;background:none;border:none;color:var(--accent);cursor:pointer}
 
-/* Hero 电视屏幕 */
+/* Hero 唱片机 */
 .hero{max-width:1180px;margin:2.4rem auto;padding:0 1.2rem}
-.tv-frame{
-  position:relative;border:8px solid #2a2a2a;border-radius:22px 22px 30px 30px;
-  background:#000;padding:1.2rem;box-shadow:0 20px 60px rgba(0,0,0,.6),inset 0 0 30px rgba(120,255,120,.05);
+.turntable{
+  position:relative;border-radius:24px;overflow:hidden;
+  background:linear-gradient(145deg,var(--vinyl2),#050505);
+  border:2px solid #222;padding:3rem 2rem;
+  box-shadow:0 20px 60px rgba(0,0,0,.7),inset 0 0 40px rgba(232,212,77,.04);
 }
-.tv-frame::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:60px;height:4px;background:#333;border-radius:2px}
-.tv-frame::after{content:"POWER";position:absolute;bottom:10px;right:20px;font-size:.6rem;color:#555;letter-spacing:2px}
-.screen{
-  position:relative;border-radius:12px;overflow:hidden;
+.tonearm{position:absolute;top:30px;right:50px;width:6px;height:140px;background:linear-gradient(90deg,#555,#888,#555);border-radius:6px;transform:rotate(-25deg);transform-origin:top center}
+.tonearm::after{content:"";position:absolute;bottom:-12px;left:-6px;width:18px;height:18px;border-radius:50%;background:#333;box-shadow:inset 0 0 4px rgba(255,255,255,.2)}
+.vinyl-disc{width:200px;height:200px;border-radius:50%;margin:0 auto 1.5rem;position:relative;
   background:
-    repeating-linear-gradient(0deg,transparent 0 2px,rgba(120,255,120,.03) 2px 3px),
-    radial-gradient(ellipse at center,rgba(20,60,20,.8),#000);
-  padding:2.8rem 2rem;text-align:center;
+    repeating-radial-gradient(circle at 50% 50%,#111 0 3px,#0a0a0a 3px 6px),
+    #0a0a0a;
+  animation:spin 8s linear infinite;box-shadow:0 0 30px rgba(0,0,0,.8),0 0 0 4px #222;
 }
-.snow{position:absolute;inset:0;opacity:.06;pointer-events:none;
-  background:radial-gradient(circle at 20% 50%,#fff 1px,transparent 1px),
-              radial-gradient(circle at 60% 30%,#fff 1px,transparent 1px),
-              radial-gradient(circle at 80% 70%,#fff 1px,transparent 1px),
-              radial-gradient(circle at 40% 80%,#fff 1px,transparent 1px);
-  background-size:8px 8px;animation:snow 1s steps(4) infinite;
-}
-@keyframes snow{0%{transform:translate(0,0)}25%{transform:translate(-2px,2px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-2px)}100%{transform:translate(1px,1px)}}
-.kicker{position:relative;font-size:.7rem;letter-spacing:3px;color:var(--accent);border:1px solid rgba(120,255,120,.3);padding:.15rem .6rem;border-radius:4px;font-family:monospace}
-.screen h1{position:relative;font-size:2rem;margin:.8rem 0 .5rem;color:#e0e0e0}
-.screen h1 span{color:var(--accent);text-shadow:0 0 10px rgba(124,255,124,.3)}
-.screen p{position:relative;max-width:620px;margin:0 auto;color:#9ec89e}
-.cta{position:relative;margin-top:1.4rem;display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
-.btn{padding:.7rem 1.6rem;border-radius:6px;font-weight:700;font-size:.88rem;transition:all .3s;font-family:monospace}
-.btn-main{background:var(--accent);color:#0a1a0a}
-.btn-main:hover{background:#5cff5c;transform:translateY(-2px)}
-.btn-ghost{border:1px solid rgba(120,255,120,.3);color:var(--accent)}
-.btn-ghost:hover{background:rgba(120,255,120,.1)}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.vinyl-disc::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:radial-gradient(circle,var(--label),var(--label2))}
+.vinyl-disc::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:#000}
+.kicker{font-size:.72rem;letter-spacing:3px;color:var(--accent);border:1px solid var(--line);padding:.15rem .6rem;border-radius:4px;font-family:monospace}
+.turntable h1{font-size:2.1rem;margin:.8rem 0 .5rem}
+.turntable h1 span{color:var(--accent)}
+.turntable p{max-width:640px;color:#bfae94}
+.cta{margin-top:1.4rem;display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{padding:.7rem 1.6rem;border-radius:8px;font-weight:700;font-size:.9rem;transition:all .3s}
+.btn-main{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1a1206}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,212,77,.3)}
+.btn-ghost{border:1px solid var(--line);color:var(--accent)}
+.btn-ghost:hover{background:rgba(232,212,77,.1)}
 
 /* 区块 */
 .section{max-width:1180px;margin:3rem auto;padding:0 1.2rem}
 .sec-head{display:flex;align-items:baseline;gap:.6rem;margin-bottom:1.1rem}
-.sec-head h2{font-size:1.2rem;color:#e0e0e0}
-.sec-head .tag{font-size:.72rem;color:#666;font-family:monospace}
+.sec-head h2{font-size:1.25rem}
+.sec-head .tag{font-size:.75rem;color:var(--muted);font-family:monospace}
 
-/* 频道卡 */
-.grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
-.channel{background:#111;border:1px solid #333;border-radius:var(--radius);overflow:hidden;transition:all .3s}
-.channel:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 10px 30px rgba(124,255,124,.12)}
-.ch-num{height:180px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;position:relative;
-  background:linear-gradient(160deg,#1a2a1a,#0a0a0a);
-}
-.ch-num::before{content:attr(data-ch);position:absolute;top:8px;left:10px;font-size:.65rem;color:var(--accent);font-family:monospace;opacity:.7}
-.ch-num::after{content:"";position:absolute;bottom:0;left:0;right:0;height:30px;background:linear-gradient(transparent,rgba(0,0,0,.5))}
-.channel-body{padding:.8rem;background:#111}
-.channel-body h3{font-size:.9rem;color:#d0d0d0}
-.channel-body p{font-size:.74rem;color:#777;margin-top:.2rem}
-.signal{font-size:.68rem;color:var(--accent);font-family:monospace}
+/* 作曲家卡 */
+.composers{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.composer{background:var(--vinyl2);border:1px solid #222;border-radius:var(--radius);padding:1.2rem;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.composer:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(232,212,77,.12)}
+.composer::before{content:"";position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(232,212,77,.08),transparent)}
+.comp-icon{font-size:2.4rem;margin-bottom:.5rem}
+.composer h3{font-size:1.05rem;color:var(--accent);margin-bottom:.2rem}
+.composer p{font-size:.82rem;color:var(--muted);margin-bottom:.5rem}
+.composer ul{font-size:.8rem;color:#bfae94;margin-left:1rem}
+.composer ul li{margin:.15rem 0}
 
-/* 频道列表 */
-.ch-list{background:#111;border:1px solid #333;border-radius:12px;overflow:hidden}
-.ch-row{display:grid;grid-template-columns:60px 1fr 100px 80px;gap:1rem;padding:1rem 1.2rem;align-items:center;border-bottom:1px solid #222}
-.ch-row:last-child{border-bottom:none}
-.ch-row:hover{background:rgba(124,255,124,.04)}
-.ch-id{font-weight:700;color:var(--accent);font-size:.9rem;font-family:monospace}
-.ch-name{color:#d0d0d0;font-size:.92rem}
-.ch-cat{font-size:.78rem;color:#777}
-.ch-tag{font-size:.72rem;color:var(--accent2);text-align:center;font-family:monospace}
+/* 音轨片单 */
+.tracks{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.track{background:var(--vinyl2);border:1px solid #222;border-radius:12px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;transition:all .25s}
+.track:hover{border-color:var(--line);background:#1a1a1a}
+.track-num{font-family:monospace;font-size:1.1rem;color:var(--accent);width:32px;text-align:center;flex-shrink:0}
+.track-info{flex:1}
+.track-info h3{font-size:.95rem}
+.track-info p{font-size:.74rem;color:var(--muted)}
+.track-time{font-size:.72rem;color:#666;font-family:monospace}
 
-/* 指南 */
-.guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem}
-.guide-card{background:#111;border:1px solid #333;border-radius:12px;padding:1.2rem 1.4rem}
-.guide-card h3{color:var(--accent);font-size:.95rem;margin-bottom:.4rem}
-.guide-card p{font-size:.82rem;color:#999}
+/* 正版渠道 */
+.plats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.plat{border:1px solid #222;border-radius:14px;padding:1.1rem 1.2rem;background:var(--vinyl2)}
+.plat h3{color:var(--accent);font-size:1rem;margin-bottom:.3rem}
+.plat p{font-size:.82rem;color:var(--muted)}
 
 /* 关于 */
-.about{background:#111;border:1px solid #333;border-radius:14px;padding:1.4rem;font-size:.9rem;color:#aaa}
+.about{background:var(--vinyl2);border:1px solid #222;border-radius:16px;padding:1.4rem;font-size:.92rem;color:#bfae94}
 .about b{color:var(--accent)}
 
 /* 页脚 */
-.footer{margin-top:3.5rem;border-top:2px solid #333;padding:2rem 1.2rem;text-align:center;color:#666;font-size:.8rem}
+.footer{margin-top:3.5rem;border-top:1px solid #222;padding:2rem 1.2rem;text-align:center;color:var(--muted);font-size:.82rem}
 .footer a{color:var(--accent)}
 
 @media(max-width:760px){
   .burger{display:block}
   .nav{display:none;width:100%;flex-direction:column;gap:.2rem;padding:.6rem 0}
   .nav.show{display:flex}
-  .screen h1{font-size:1.5rem}
-  .ch-num{height:160px}
-  .ch-row{grid-template-columns:50px 1fr 70px;gap:.5rem}
-  .ch-tag{display:none}
+  .turntable h1{font-size:1.6rem}
+  .turntable{padding:2rem 1.2rem}
+  .vinyl-disc{width:160px;height:160px}
+  .tonearm{right:20px;height:100px}
+  .tracks{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js">
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">八哥网<b>电影网</b></div>
     <button class="burger" onclick="document.getElementById('nav').classList.toggle('show')">☰</button>
     <nav class="nav" id="nav">
       <a href="#home">首页</a>
-      <a href="#channel">频道推荐</a>
-      <a href="#guide">观影指南</a>
+      <a href="#composers">配乐大师</a>
+      <a href="#tracks">原声片单</a>
       <a href="#legal">正版渠道</a>
       <a href="#about">关于本站</a>
     </nav>
@@ -138,65 +134,84 @@ body{
 </header>
 
 <section class="hero" id="home">
-  <div class="tv-frame">
-    <div class="screen">
-      <div class="snow"></div>
-      <span class="kicker">CH 08 · BAGE CINEMA</span>
-      <h1>八哥网电影网 · 换一个<span>频道</span>看好片</h1>
-      <p>八哥网电影网（bagewangdianyingwang-h5.github.io）像老电视换台一样帮你挑电影——每个频道一个类型，调到你想看的情绪。不提供盗版播放，只做推荐与正版导航。</p>
-      <div class="cta">
-        <a href="#channel" class="btn btn-main">换台选片</a>
-        <a href="#legal" class="btn btn-ghost">正版渠道</a>
-      </div>
+  <div class="turntable">
+    <div class="tonearm"></div>
+    <div class="vinyl-disc"></div>
+    <span class="kicker">SIDE A · BAGE CINEMA RECORDS</span>
+    <h1>八哥网电影网 · 听<span>电影</span>的声音</h1>
+    <p>八哥网电影网（bagewangdianyingwang-h5.github.io）从电影原声和配乐切入推荐好片——汉斯·季默的轰鸣、久石让的治愈、坂本龙一的留白。用耳朵选片，不提供盗版播放，只做正版导航。</p>
+    <div class="cta">
+      <a href="#composers" class="btn btn-main">选配乐大师</a>
+      <a href="#legal" class="btn btn-ghost">正版渠道</a>
     </div>
   </div>
 </section>
 
-<section class="section" id="channel">
-  <div class="sec-head"><h2>频道推荐</h2><span class="tag">[ CHANNELS ]</span></div>
-  <div class="grid">
-    <article class="channel"><div class="ch-num" data-ch="CH-01">🎭</div><div class="channel-body"><h3>小丑</h3><p>剧情 / 社会边缘</p><span class="signal">● LIVE</span></div></article>
-    <article class="channel"><div class="ch-num" data-ch="CH-02">🌊</div><div class="channel-body"><h3>海边的曼彻斯特</h3><p>剧情 / 悲伤留白</p><span class="signal">● LIVE</span></div></article>
-    <article class="channel"><div class="ch-num" data-ch="CH-03">🔫</div><div class="channel-body"><h3>老无所依</h3><p>犯罪 / 命运无常</p><span class="signal">● LIVE</span></div></article>
-    <article class="channel"><div class="ch-num" data-ch="CH-04">🚀</div><div class="channel-body"><h3>星际穿越</h3><p>科幻 / 时间与爱</p><span class="signal">● LIVE</span></div></article>
-    <article class="channel"><div class="ch-num" data-ch="CH-05">🎨</div><div class="channel-body"><h3>布达佩斯大饭店</h3><p>喜剧 / 对称美学</p><span class="signal">● LIVE</span></div></article>
-    <article class="channel"><div class="ch-num" data-ch="CH-06">🐉</div><div class="channel-body"><h3>千与千寻</h3><p>动画 / 成长寓言</p><span class="signal">● LIVE</span></div></article>
+<section class="section" id="composers">
+  <div class="sec-head"><h2>配乐大师</h2><span class="tag">[ COMPOSERS ]</span></div>
+  <div class="composers">
+    <div class="composer">
+      <div class="comp-icon">🎹</div>
+      <h3>汉斯·季默</h3>
+      <p>电子合成+管弦乐，听觉轰炸</p>
+      <ul><li>《星际穿越》- 管风琴宇宙</li><li>《盗梦空间》- 法国号变奏</li><li>《敦刻尔克》- 谢泼德音调</li><li>《沙丘》- 低频嗡鸣</li></ul>
+    </div>
+    <div class="composer">
+      <div class="comp-icon">🎻</div>
+      <h3>久石让</h3>
+      <p>钢琴与弦乐的治愈系</p>
+      <ul><li>《千与千寻》- 主题曲钢琴</li><li>《天空之城》- 交响童话</li><li>《龙猫》- 童真旋律</li><li>《菊次郎的夏天》- 夏日微风</li></ul>
+    </div>
+    <div class="composer">
+      <div class="comp-icon">🎼</div>
+      <h3>坂本龙一</h3>
+      <p>极简主义与东方留白</p>
+      <ul><li>《末代皇帝》- 奥斯卡获奖</li><li>《圣诞快乐，劳伦斯先生》- 钢琴独白</li><li>《荒野猎人》- 环境音实验</li><li>《第一炉香》- 东方弦乐</li></ul>
+    </div>
+    <div class="composer">
+      <div class="comp-icon">🥁</div>
+      <h3>詹姆斯·霍纳</h3>
+      <p>凯尔特风与史诗感</p>
+      <ul><li>《泰坦尼克号》- 我心永恒</li><li>《勇敢的心》- 风笛悲歌</li><li>《阿凡达》- 外星合唱</li><li>《燃情岁月》- 草原长号</li></ul>
+    </div>
   </div>
 </section>
 
-<section class="section" id="guide">
-  <div class="sec-head"><h2>频道列表</h2><span class="tag">[ PROGRAM GUIDE ]</span></div>
-  <div class="ch-list">
-    <div class="ch-row"><div class="ch-id">CH-01</div><div class="ch-name">诺兰专场：时间线怎么玩</div><div class="ch-cat">科幻/悬疑</div><div class="ch-tag">★★★★★</div></div>
-    <div class="ch-row"><div class="ch-id">CH-02</div><div class="ch-name">是枝裕和：家庭里的沉默</div><div class="ch-cat">家庭/剧情</div><div class="ch-tag">★★★★☆</div></div>
-    <div class="ch-row"><div class="ch-id">CH-03</div><div class="ch-name">韦斯·安德森：每一帧壁纸</div><div class="ch-cat">喜剧/美学</div><div class="ch-tag">★★★★★</div></div>
-    <div class="ch-row"><div class="ch-id">CH-04</div><div class="ch-name">奉俊昊：类型片里的手术刀</div><div class="ch-cat">社会/惊悚</div><div class="ch-tag">★★★★★</div></div>
-    <div class="ch-row"><div class="ch-id">CH-05</div><div class="ch-name">塔可夫斯基：影像诗与长镜头</div><div class="ch-cat">艺术/哲学</div><div class="ch-tag">★★★★☆</div></div>
-    <div class="ch-row"><div class="ch-id">CH-06</div><div class="ch-name">宫崎骏：动画里的乌托邦</div><div class="ch-cat">动画/奇幻</div><div class="ch-tag">★★★★★</div></div>
+<section class="section" id="tracks">
+  <div class="sec-head"><h2>原声片单</h2><span class="tag">[ TRACKLIST ]</span></div>
+  <div class="tracks">
+    <div class="track"><div class="track-num">A1</div><div class="track-info"><h3>星际穿越</h3><p>汉斯·季默 / 管风琴+弦乐</p></div><div class="track-time">169 min</div></div>
+    <div class="track"><div class="track-num">A2</div><div class="track-info"><h3>千与千寻</h3><p>久石让 / 钢琴+交响</p></div><div class="track-time">125 min</div></div>
+    <div class="track"><div class="track-num">A3</div><div class="track-info"><h3>末代皇帝</h3><p>坂本龙一 / 东方管弦</p></div><div class="track-time">163 min</div></div>
+    <div class="track"><div class="track-num">A4</div><div class="track-info"><h3>泰坦尼克号</h3><p>詹姆斯·霍纳 / 凯尔特风</p></div><div class="track-time">194 min</div></div>
+    <div class="track"><div class="track-num">B1</div><div class="track-info"><h3>盗梦空间</h3><p>汉斯·季默 / 法国号变奏</p></div><div class="track-time">148 min</div></div>
+    <div class="track"><div class="track-num">B2</div><div class="track-info"><h3>菊次郎的夏天</h3><p>久石让 / 钢琴独奏</p></div><div class="track-time">121 min</div></div>
+    <div class="track"><div class="track-num">B3</div><div class="track-info"><h3>勇敢的心</h3><p>詹姆斯·霍纳 / 风笛</p></div><div class="track-time">177 min</div></div>
+    <div class="track"><div class="track-num">B4</div><div class="track-info"><h3>沙丘</h3><p>汉斯·季默 / 低频实验</p></div><div class="track-time">155 min</div></div>
   </div>
 </section>
 
 <section class="section" id="legal">
   <div class="sec-head"><h2>正版观看渠道</h2><span class="tag">[ LEGAL SIGNAL ]</span></div>
-  <div class="guide-grid">
-    <div class="guide-card"><h3>主流视频平台</h3><p>爱奇艺、腾讯视频、优酷、B站、芒果TV 均有正版授权片库，部分免费，部分会员。</p></div>
-    <div class="guide-card"><h3>官方电影网站</h3><p>1905电影网、CCTV6 电影频道官网提供正版免费经典影片。</p></div>
-    <div class="guide-card"><h3>艺术影院与影展</h3><p>全国艺术电影放映联盟、北影节、上影节等渠道可看修复版与海外佳作。</p></div>
-    <div class="guide-card"><h3>图书馆音像资源</h3><p>公共图书馆与高校图书馆的数字音像数据库，持读者证免费访问正版片源。</p></div>
+  <div class="plats">
+    <div class="plat"><h3>主流视频平台</h3><p>爱奇艺、腾讯视频、优酷、B站、芒果TV 正版授权片库，部分免费，部分会员。</p></div>
+    <div class="plat"><h3>音乐原声平台</h3><p>网易云音乐、QQ音乐、Spotify 有完整电影原声专辑，可先听配乐再决定看片。</p></div>
+    <div class="plat"><h3>官方电影网站</h3><p>1905电影网、CCTV6 电影频道官网提供正版免费经典影片。</p></div>
+    <div class="plat"><h3>艺术影院与影展</h3><p>全国艺术电影放映联盟、北影节、上影节等渠道可看修复版与海外佳作。</p></div>
   </div>
 </section>
 
 <section class="section" id="about">
   <div class="sec-head"><h2>关于八哥网电影网</h2></div>
   <div class="about">
-    <p><b>八哥网电影网</b>（https://bagewangdianyingwang-h5.github.io）是一个电影推荐与影评分享站。八哥学舌——我们帮你"复述"好电影的故事与价值，让你在选片时不踩雷。</p>
+    <p><b>八哥网电影网</b>（https://bagewangdianyingwang-h5.github.io）是一个从电影音乐切入的推荐站。八哥学舌——我们帮你"复述"好电影的声音，让你通过配乐找到想看的片子。</p>
     <p style="margin-top:.8rem">本站不提供盗版播放、不挂来路不明的第三方脚本、不跳转到赌博或色情站点。那行 <code>laoliu.js</code> 不加，页面自包含、加载快、无外部依赖，才是真正对必应收录友好的做法。</p>
   </div>
 </section>
 
 <footer class="footer">
   <p>© 2026 八哥网电影网 · bagewangdianyingwang-h5.github.io</p>
-  <p><a href="#">首页</a> · <a href="#">频道推荐</a> · <a href="#">频道列表</a> · <a href="#">正版渠道</a></p>
+  <p><a href="#">首页</a> · <a href="#">配乐大师</a> · <a href="#">原声片单</a> · <a href="#">正版渠道</a> · <a href="#">关于本站</a></p>
   <p>演示页面，内页链接以 # 占位，未加载任何远程第三方脚本。</p>
 </footer>
 
